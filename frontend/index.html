@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Help Desk | Central de Atendimento</title>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="logo">
+                <i class="bi bi-headset"></i>
+                <span>Help Desk</span>
+            </div>
+
+            <nav class="menu">
+
+                <p class="menu-title">MENU PRINCIPAL</p>
+
+                <a href="#dashboard" class="menu-link active">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#novo-chamado" class="menu-link">
+                    <i class="bi bi-plus-circle"></i>
+                    <span>Novo chamado</span>
+                </a>
+
+                <p class="menu-title">ATENDIMENTO</p>
+
+                <a href="#historico" class="menu-link">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Histórico</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <i class="bi bi-person-circle"></i>
+
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Suporte de TI</small>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- CABEÇALHO -->
+            <header class="topbar">
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="page-info">
+                </div>
+
+                <div class="topbar-actions">
+                    <span class="system-status">
+                        <i class="bi bi-circle-fill"></i>
+                        Sistema online
+                    </span>
+
+                    <i class="bi bi-bell notification-icon"></i>
+                </div>
+
+            </header>
+
+            <!-- ÁREA DE BOAS-VINDAS -->
+            <section class="welcome-section">
+
+                <div class="welcome-content">
+                    <span class="welcome-label">
+                        CENTRAL DE ATENDIMENTO
+                    </span>
+
+                    <h1>Bem-vindo ao Help Desk!</h1>
+
+                    <p>
+                        Estamos aqui para facilitar o gerenciamento
+                        das solicitações de suporte técnico.
+                    </p>
+
+                    <p>
+                        Registre novos chamados, acompanhe solicitações
+                        e gerencie os atendimentos em um só lugar.
+                    </p>
+
+                    <button type="button" id="new-ticket-button">
+                        <i class="bi bi-plus-circle"></i>
+                        Novo chamado
+                    </button>
+                </div>
+
+                <div class="welcome-icon">
+                    <i class="bi bi-headset"></i>
+                </div>
+
+            </section>
+
+
+            <!-- ÁREA DE CONTEÚDO -->
+            <section class="content-area" id="dashboard">
+
+                <div class="welcome">
+                    <h2>Bem-vindo ao Help Desk!</h2>
+                    <p>
+                        Gerencie solicitações e acompanhe
+                        os atendimentos técnicos.
+                    </p>
+                </div>
+
+
+                <!-- INDICADORES DO DASHBOARD -->
+
+                <div class="dashboard-cards">
+
+                    <!-- TOTAL DE CHAMADOS -->
+                    <div class="stat-card">
+
+                        <div class="stat-info">
+                            <span>Total de chamados</span>
+                            <h3 id="total-tickets">0</h3>
+                        </div>
+
+                        <div class="stat-icon blue">
+                            <i class="bi bi-ticket"></i>
+                        </div>
+
+                    </div>
+
+                    <!-- CHAMADOS ABERTOS -->
+                    <div class="stat-card">
+
+                        <div class="stat-info">
+                            <span>Chamados abertos</span>
+                            <h3 id="open-tickets">0</h3>
+                        </div>
+
+                        <div class="stat-icon orange">
+                            <i class="bi bi-exclamation-circle"></i>
+                        </div>
+
+                    </div>
+
+                    <!-- EM ATENDIMENTO -->
+                    <div class="stat-card">
+
+                        <div class="stat-info">
+                            <span>Em atendimento</span>
+                            <h3 id="progress-tickets">0</h3>
+                        </div>
+
+                        <div class="stat-icon purple">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                    </div>
+
+                    <!-- RESOLVIDOS -->
+                    <div class="stat-card">
+
+                        <div class="stat-info">
+                            <span>Chamados resolvidos</span>
+                            <h3 id="resolved-tickets">0</h3>
+                        </div>
+
+                        <div class="stat-icon green">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULÁRIO DE ABERTURA DE CHAMADOS -->
+
+                <div class="ticket-form-container" id="novo-chamado">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Novo chamado</h2>
+                            <p>Preencha os dados para registrar uma solicitação.</p>
+                        </div>
+
+                        <i class="bi bi-ticket-perforated"></i>
+                    </div>
+
+                    <form id="ticket-form">
+
+                        <!-- SOLICITANTE -->
+
+                        <div class="form-group">
+                            <label for="requester">Nome do solicitante</label>
+
+                            <input type="text" id="requester" placeholder="Digite o nome do solicitante" required>
+                        </div>
+
+                        <!-- TÍTULO -->
+
+                        <div class="form-group">
+                            <label for="ticket-title">Título do problema</label>
+
+                            <input type="text" id="ticket-title" placeholder="Ex: Computador não liga" required>
+                        </div>
+
+                        <!-- DESCRIÇÃO -->
+
+                        <div class="form-group">
+                            <label for="description">Descrição do problema</label>
+
+                            <textarea id="description" rows="4" placeholder="Descreva detalhadamente o problema..."
+                                required></textarea>
+                        </div>
+
+                        <!-- CATEGORIA -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="category">Categoria</label>
+
+                                <select id="category" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="Hardware">Hardware</option>
+                                    <option value="Software">Software</option>
+                                    <option value="Rede">Rede</option>
+                                    <option value="Acesso">Acesso</option>
+                                </select>
+                            </div>
+
+                            <!-- PRIORIDADE -->
+
+                            <div class="form-group">
+                                <label for="priority">Prioridade</label>
+
+                                <select id="priority" required>
+                                    <option value="">Selecione a prioridade</option>
+                                    <option value="Baixa">Baixa</option>
+                                    <option value="Média">Média</option>
+                                    <option value="Alta">Alta</option>
+                                    <option value="Crítica">Crítica</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- URGÊNCIA -->
+
+                        <div class="form-group">
+                            <label for="urgency">Urgência</label>
+
+                            <select id="urgency" required>
+                                <option value="">Selecione a urgência</option>
+                                <option value="Baixa">Baixa</option>
+                                <option value="Média">Média</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+
+                        <!-- BOTÃO -->
+
+                        <div class="form-actions">
+
+                            <button type="reset" class="btn-reset">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Limpar
+                            </button>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="bi bi-plus-circle"></i> Registrar chamado
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- LISTA DE CHAMADOS -->
+                <div class="tickets-container" id="historico">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Chamados registrados</h2>
+                            <p>Acompanhe as solicitações cadastradas no sistema.</p>
+                        </div>
+
+                        <i class="bi bi-list-task"></i>
+                    </div>
+
+                    <!-- FILTRO POR STATUS -->
+                    <div class="ticket-filters">
+
+                        <label for="status-filter">Filtrar por status:</label>
+
+                        <select id="status-filter">
+                            <option value="Todos">Todos os chamados</option>
+                            <option value="Aberto">Aberto</option>
+                            <option value="Em atendimento">Em atendimento</option>
+                            <option value="Aguardando usuário">Aguardando usuário</option>
+                            <option value="Resolvido">Resolvido</option>
+                            <option value="Fechado">Fechado</option>
+                        </select>
+
+                        <label for="priority-filter">Filtrar por prioridade:</label>
+
+                        <select id="priority-filter">
+                            <option value="Todas">Todas as prioridades</option>
+                            <option value="Baixa">Baixa</option>
+                            <option value="Média">Média</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Crítica">Crítica</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="tickets-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Solicitante</th>
+                                    <th>Título</th>
+                                    <th>Categoria</th>
+                                    <th>Prioridade</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tickets-table-body">
+                                <!-- Os chamados serão inseridos pelo JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!--MODAL DE EDIÇÃO DE CHAMADO-->
+
+    <div class="modal-overlay" id="edit-modal">
+
+        <div class="modal-container">
+
+            <div class="modal-header">
+                <div>
+                    <h2>Editar chamado</h2>
+                    <p>Atualize as informações da solicitação.</p>
+                </div>
+
+                <button type="button" class="modal-close" id="close-edit-modal">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <form id="edit-ticket-form">
+
+                <input type="hidden" id="edit-ticket-id">
+
+                <div class="modal-field">
+                    <label for="edit-status">Status</label>
+
+                    <select id="edit-status" required>
+                        <option value="Aberto">Aberto</option>
+                        <option value="Em atendimento">Em atendimento</option>
+                        <option value="Aguardando usuário">Aguardando usuário</option>
+                        <option value="Resolvido">Resolvido</option>
+                        <option value="Fechado">Fechado</option>
+                    </select>
+                </div>
+
+                <div class="modal-field">
+                    <label for="edit-priority">Prioridade</label>
+
+                    <select id="edit-priority" required>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Crítica">Crítica</option>
+                    </select>
+                </div>
+
+                <div class="modal-field">
+                    <label for="edit-urgency">Urgência</label>
+
+                    <select id="edit-urgency" required>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+
+                    <button type="button" class="modal-cancel" id="cancel-edit">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="modal-save">
+                        <i class="bi bi-check-lg"></i>
+                        Salvar alterações
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!--MODAL DE SUCESSO-->
+
+    <div class="modal-overlay" id="success-modal">
+
+        <div class="modal-container success-container">
+
+            <div class="success-icon">
+                <i class="bi bi-check-lg"></i>
+            </div>
+
+            <div class="success-content">
+                <h2 id="success-title">Operação concluída!</h2>
+                <p id="success-message">
+                    As alterações foram salvas com sucesso.
+                </p>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="modal-save" id="close-success-modal">
+                    Entendi
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="current-year"></span> Help Desk.
+            Todos os direitos reservados.
+        </p>
+        <p>
+            <i class="bi bi-calendar3"></i>
+            <span id="current-date"></span>
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>

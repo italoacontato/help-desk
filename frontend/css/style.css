@@ -1,0 +1,1222 @@
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fa;
+    color: #263247;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ========================================
+   ESTRUTURA DO DASHBOARD
+======================================== */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ========================================
+   MENU LATERAL
+======================================== */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #17243b;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 0 12px 35px;
+}
+
+.logo i {
+    font-size: 28px;
+    color: #4b91f1;
+}
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-title {
+    font-size: 11px;
+    color: #8e9bb0;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 15px 12px 8px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 12px;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #c4ccda;
+    transition: 0.2s;
+}
+
+.menu-link i {
+    font-size: 18px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+    background-color: #29466f;
+    color: #ffffff;
+}
+
+.menu-link.active {
+    border-left: 3px solid #4b91f1;
+}
+
+/* ========================================
+   RODAPÉ DO MENU
+======================================== */
+
+.sidebar-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding: 20px 10px 5px;
+    border-top: 1px solid #344158;
+}
+
+.sidebar-footer i {
+    font-size: 30px;
+    color: #8ebaff;
+}
+
+.sidebar-footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-footer strong {
+    font-size: 13px;
+}
+
+.sidebar-footer small {
+    font-size: 11px;
+    color: #aab5c5;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.topbar {
+    min-height: 60px;
+    background-color: #17243b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 35px;
+    gap: 20px;
+}
+
+.page-info h1 {
+    font-size: 20px;
+    color: #17243b;
+    margin-bottom: 5px;
+}
+
+.page-info p {
+    font-size: 13px;
+    color: #8994a5;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.system-status {
+    font-size: 12px;
+    color: #269b65;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.system-status i {
+    font-size: 8px;
+}
+
+.notification-icon {
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #17243b;
+}
+
+/* ========================================
+   ÁREA DE CONTEÚDO
+======================================== */
+
+.content-area {
+    padding: 35px;
+    flex: 1;
+}
+
+.welcome h2 {
+    font-size: 23px;
+    color: #17243b;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #8490a1;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.placeholder {
+    margin-top: 30px;
+    min-height: 280px;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.placeholder i {
+    font-size: 45px;
+    color: #4b91f1;
+    margin-bottom: 15px;
+}
+
+.placeholder h3 {
+    color: #263247;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.placeholder p {
+    color: #8994a5;
+    font-size: 13px;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 250px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .topbar {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .page-info {
+        flex: 1;
+    }
+
+    .page-info h1 {
+        font-size: 16px;
+    }
+
+    .page-info p {
+        font-size: 11px;
+    }
+
+    .topbar-actions {
+        gap: 12px;
+    }
+
+    .system-status {
+        font-size: 0;
+    }
+
+    .system-status i {
+        font-size: 9px;
+    }
+
+    .content-area {
+        padding: 22px 18px;
+    }
+
+    .welcome h2 {
+        font-size: 20px;
+    }
+}
+
+
+/* ========================================
+   CARTÕES DO DASHBOARD
+======================================== */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-info span {
+    color: #8490a1;
+    font-size: 12px;
+}
+
+.stat-info h3 {
+    color: #17243b;
+    font-size: 28px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+/* CORES DOS INDICADORES */
+
+.stat-icon.blue {
+    background-color: #e8f1ff;
+    color: #4389e8;
+}
+
+.stat-icon.orange {
+    background-color: #fff3df;
+    color: #d99a27;
+}
+
+.stat-icon.purple {
+    background-color: #f0eaff;
+    color: #8b6bd6;
+}
+
+.stat-icon.green {
+    background-color: #e5f7ed;
+    color: #279b69;
+}
+
+/* ========================================
+   RESPONSIVIDADE DOS CARTÕES
+======================================== */
+
+@media (max-width: 1100px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .stat-info h3 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ========================================
+   FORMULÁRIO DE CHAMADOS
+======================================== */
+
+.ticket-form-container {
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+    padding: 28px;
+    margin-top: 30px;
+}
+
+/* CABEÇALHO DO FORMULÁRIO */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.section-header h2 {
+    font-size: 19px;
+    color: #17243b;
+    margin-bottom: 7px;
+}
+
+.section-header p {
+    font-size: 13px;
+    color: #8994a5;
+}
+
+.section-header i {
+    font-size: 28px;
+    color: #4389e8;
+}
+
+/* CAMPOS */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #344158;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce2eb;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #263247;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4389e8;
+    box-shadow: 0 0 0 3px rgba(67, 137, 232, 0.10);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a4adba;
+}
+
+/* CAMPOS LADO A LADO */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* BOTÕES */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.form-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-reset {
+    background-color: #eef1f5;
+    color: #526075;
+}
+
+.btn-reset:hover {
+    background-color: #dfe4eb;
+}
+
+.btn-submit {
+    background-color: #347bd1;
+    color: #ffffff;
+}
+
+.btn-submit:hover {
+    background-color: #2865b2;
+}
+
+/* ========================================
+   RESPONSIVIDADE DO FORMULÁRIO
+======================================== */
+
+@media (max-width: 600px) {
+
+    .ticket-form-container {
+        padding: 20px 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .section-header h2 {
+        font-size: 17px;
+    }
+
+}
+
+
+/* ========================================
+   ACABAMENTO VISUAL
+======================================== */
+
+/* TÍTULOS E SEÇÕES */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    margin-bottom: 6px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d5d9df;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* BOTÕES */
+
+.btn-submit,
+.btn-reset {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-submit:hover,
+.btn-reset:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+}
+
+.btn-submit:active,
+.btn-reset:active {
+    transform: translateY(0);
+}
+
+.btn-submit:focus-visible,
+.btn-reset:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+/* ESTADO DESABILITADO */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ESPAÇAMENTO DO FORMULÁRIO */
+
+.ticket-form-container {
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 600px) {
+    .ticket-form-container {
+        padding: 18px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+    }
+
+    .section-header h2 {
+        font-size: 1.15rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+    }
+}
+
+
+/* ========================================
+    TABELA DE CHAMADOS
+======================================== */
+
+.tickets-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid #e5e9f0;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tickets-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.tickets-table th,
+.tickets-table td {
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e9f0;
+    font-size: 13px;
+}
+
+.tickets-table th {
+    background-color: #f5f7fa;
+    color: #526075;
+    font-weight: 600;
+}
+
+.tickets-table td {
+    color: #344158;
+}
+
+.tickets-table tbody tr:hover {
+    background-color: #f8faff;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    .tickets-container {
+        padding: 18px;
+    }
+
+    .tickets-table th,
+    .tickets-table td {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+}
+
+
+/* ========================================
+    FILTRO POR STATUS
+======================================== */
+
+.ticket-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.ticket-filters label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #344158;
+}
+
+.ticket-filters select {
+    min-width: 210px;
+    padding: 10px 12px;
+    border: 1px solid #d5d9df;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #344158;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.ticket-filters select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+@media (max-width: 600px) {
+
+    .ticket-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ticket-filters select {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================
+   BOTÃO DE EXCLUSÃO
+======================================== */
+
+.delete-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 7px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.delete-btn:focus {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   BOTÃO DE EDIÇÃO
+======================================== */
+
+.edit-btn {
+    background-color: #e8efff;
+    color: #3157a4;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+    transition: 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #d5e2ff;
+}
+
+
+/* ========================================
+   MODAL DE EDIÇÃO DE CHAMADO
+======================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    animation: modalAppear 0.2s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.modal-header p {
+    font-size: 14px;
+    color: #777777;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #666666;
+}
+
+.modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.modal-field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-field select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.modal-field select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.modal-actions button {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-cancel {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+.modal-cancel:hover {
+    background-color: #dddddd;
+}
+
+.modal-save {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.modal-save:hover {
+    background-color: #1d4ed8;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVIDADE DO MODAL */
+
+@media (max-width: 480px) {
+
+    .modal-container {
+        padding: 22px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   MODAL DE SUCESSO
+======================================== */
+
+.success-container {
+    max-width: 400px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    background-color: #e8f5e9;
+    color: #2e9d50;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+}
+
+.success-content h2 {
+    color: #17243b;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.success-content p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.success-container .modal-actions {
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.success-container .modal-save {
+    min-width: 120px;
+}
+
+/* ========================================
+   ÁREA DE BOAS-VINDAS
+======================================== */
+
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    /* border-radius: 16px; */
+    color: #ffffff;
+    min-height: 250px;
+}
+
+.welcome-content {
+    max-width: 650px;
+}
+
+.welcome-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.welcome-content h1 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.welcome-content p {
+    margin-bottom: 10px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+#new-ticket-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#new-ticket-button:hover {
+    background-color: #2563eb;
+}
+
+.welcome-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.welcome-icon i {
+    font-size: 75px;
+    color: #93c5fd;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: 25px;
+    }
+
+    .welcome-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .welcome-icon i {
+        font-size: 50px;
+    }
+
+    .welcome-content h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: 25px 20px;
+    }
+
+    .welcome-icon {
+        display: none;
+    }
+
+    .welcome-content h1 {
+        font-size: 22px;
+    }
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.site-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 20px;
+    margin-top: 0;
+    background-color: #1e293b;
+    color: #cbd5e1;
+    font-size: 13px;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer i {
+    margin-right: 5px;
+}
