@@ -96,3 +96,4 @@ O banco e a tabela são criados automaticamente quando o backend é iniciado pel
 Projeto desenvolvido com o objetivo de praticar desenvolvimento web, integração entre frontend e backend, operações CRUD, criação de APIs REST e utilização de banco de dados relacional.
 
 ![alt text](projeto.png)
+![alt text](help-desk-mobile.png)
